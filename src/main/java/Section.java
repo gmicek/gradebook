@@ -15,7 +15,7 @@ public class Section {
      * The Class that this Section belongs to.
      *
      */
-    private final SchoolClass parentClass;
+    private SchoolClass parentClass;
 
     /**
      * The Students in this Section.
@@ -26,10 +26,8 @@ public class Section {
     /**
      * Section Constructor.
      *
-     * @param parent The parent of this class
      */
-    public Section(final SchoolClass parent) {
-        parentClass = parent;
+    public Section() {
         students = new ArrayList<Student>();
     }
 
@@ -40,6 +38,15 @@ public class Section {
      */
     public final SchoolClass getParentClass() {
         return parentClass;
+    }
+
+    /**
+     * Section's parent class setter.
+     *
+     * @param newParentClass parent class of section
+     */
+    public final void setParentClass(final SchoolClass newParentClass) {
+        parentClass = newParentClass;
     }
 
     /**
@@ -72,13 +79,15 @@ public class Section {
     }
 
     /**
-     * Number Grade.
+     * Number Grade average for Section using individual students averages.
      *
      * @param scheme Grading Scheme to be used when computing grade
+     * @return section average numeric grade
      */
-    public final int computeGrade(final GradingScheme scheme) {
-        if(students.isEmpty())
+    public final int computeAverage(final GradingScheme scheme) {
+        if (students.isEmpty()) {
             return 0;
+        }
 
         ArrayList<Integer> list = new ArrayList<Integer>();
 
@@ -92,6 +101,7 @@ public class Section {
         for (Integer integer : list) {
             sum += integer.intValue();
         }
+        System.out.println("Section list size: " + list.size());
         // return average for section
         return sum / list.size();
     }

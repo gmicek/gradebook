@@ -47,5 +47,5 @@ public class GradebookCategory {
     public final int getWeight() {
         return weight;
     }
-    
+
 }

@@ -40,18 +40,18 @@ public class Student {
     }
 
     /**
-     * Add Gradebook Items
+     * Add Gradebook Items.
      *
-     * @param newGrade new Gradebook Item to add
+     * @param grade new Gradebook Item to add
      */
     public final void addGrade(final GradebookItem grade) {
         gradebookItems.add(grade);
     }
 
     /**
-     * Add Gradebook Items (List)
+     * Add Gradebook Items (List).
      *
-     * @param newGrades new Gradebook Items to add
+     * @param grades new Gradebook Items to add
      */
     public final void addGrade(final List<GradebookItem> grades) {
         for (GradebookItem grade : grades) {
@@ -81,6 +81,7 @@ public class Student {
      * Number Grade.
      *
      * @param scheme Grading Scheme to be used when computing grade
+     * @return student grade computed from grading scheme
      */
     public final int computeGrade(final GradingScheme scheme) {
         return scheme.computeGrade(gradebookItems);
@@ -90,6 +91,7 @@ public class Student {
      * Letter Grade.
      *
      * @param scheme Grading Scheme to be used when computing grade
+     * @return student letter grade computed from grading scheme
      */
     public final char computeLetterGrade(final GradingScheme scheme) {
         return scheme.computeLetterGrade(gradebookItems);

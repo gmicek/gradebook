@@ -28,7 +28,7 @@ public class GradebookItem {
      *
      * @param newName name of Gradebook Item
      * @param newCategory name of Gradebook Category
-     * @param grade value of grade
+     * @param newGrade value of grade
      */
     public GradebookItem(final String newName,
         final GradebookCategory newCategory,
@@ -61,7 +61,7 @@ public class GradebookItem {
      *
      * @return grade Grade
      */
-    public int getGrade() {
+    public final int getGrade() {
         return grade;
     }
 

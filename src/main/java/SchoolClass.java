@@ -12,6 +12,12 @@ import java.util.ArrayList;
 public class SchoolClass {
 
     /**
+     * Class Name.
+     *
+     */
+    private final String name;
+
+    /**
      * ArrayList of sections in this class.
      *
      */
@@ -22,7 +28,17 @@ public class SchoolClass {
      *
      */
     public SchoolClass() {
+        this(null);
+    }
+
+    /**
+     * Class Constructor.
+     *
+     * @param newName class name
+     */
+    public SchoolClass(final String newName) {
         sections = new ArrayList<Section>();
+        name = newName;
     }
 
     /**
@@ -32,6 +48,7 @@ public class SchoolClass {
      */
     public final void addSection(final Section newSection) {
         sections.add(newSection);
+        newSection.setParentClass(this);
     }
 
     /**
@@ -55,13 +72,41 @@ public class SchoolClass {
     }
 
     /**
-     * Compute and return Class Average.
+     * Name Getter.
      *
-     * @return average average grade for the course
+     * @return name Name
      */
-    // public int getAverage() {
-    //     return null;
-    // }
+    public final String getName() {
+        return name;
+    }
+
+    /**
+     * Number Grade average for Class using individual Section averages.
+     *
+     * @param scheme Grading Scheme to be used when computing grade
+     * @return number grade average for Class
+     */
+    public final int computeAverage(final GradingScheme scheme) {
+        if (sections.isEmpty()) {
+            return 0;
+        }
+
+        ArrayList<Integer> list = new ArrayList<Integer>();
+
+        // compute individual section averages then add to master list
+        for (Section section : sections) {
+            list.add(section.computeAverage(scheme));
+        }
+
+        int sum = 0;
+        // sum scores
+        for (Integer integer : list) {
+            sum += integer.intValue();
+        }
+        System.out.println("Class list size: " + list.size());
+        // return average for section
+        return sum / list.size();
+    }
 
     /**
      * Compute and return Class letter grade.

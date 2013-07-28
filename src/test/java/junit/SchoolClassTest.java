@@ -19,7 +19,8 @@ public class SchoolClassTest {
     @Test
     public void testSectionAddStudent() {
         SchoolClass schoolClass = new SchoolClass();
-        Section section = new Section(schoolClass);
+        Section section = new Section();
+        section.setParentClass(schoolClass);
 
         schoolClass.addSection(section);
 
@@ -37,8 +38,10 @@ public class SchoolClassTest {
     @Test
     public void testSectionAddStudents() {
         SchoolClass schoolClass = new SchoolClass();
-        Section section1 = new Section(schoolClass);
-        Section section2 = new Section(schoolClass);
+        Section section1 = new Section();
+        section1.setParentClass(schoolClass);
+        Section section2 = new Section();
+        section2.setParentClass(schoolClass);
 
         ArrayList<Section> list = new ArrayList<Section>();
         list.add(section1);
@@ -51,4 +54,41 @@ public class SchoolClassTest {
 
     }
 
+    /**
+     * Test child section.
+     *
+     */
+    @Test
+    public void testAddSection() {
+        SchoolClass class1 = new SchoolClass("Name");
+        Section section1 = new Section();
+        class1.addSection(section1);
+        
+
+        assertTrue("get name Name", class1.getName().equals("Name"));
+    }
+
+    /**
+     * Test get name.
+     *
+     */
+    @Test
+    public void testGetName() {
+        SchoolClass class1 = new SchoolClass("Name");
+        
+
+        assertTrue("get name Name", class1.getName().equals("Name"));
+    }
+
+    /**
+     * Test get name null constructor.
+     *
+     */
+    @Test
+    public void testGetNameNull() {
+        SchoolClass class1 = new SchoolClass();
+
+        assertTrue("get name null", class1.getName() == null);
+
+    }
 }

@@ -6,7 +6,7 @@ import gradebook.model.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GradingSchemeTest {
+public class GradingSchemeOneTest {
 
     Student student1,
             student2,
@@ -32,11 +32,9 @@ public class GradingSchemeTest {
         student2 = new Student();
         student3 = new Student();
 
-        gradeCategory = new GradebookCategory("Category", 1);
-
         grade1 = new GradebookItem("Item", gradeCategory, 1);
         grade2 = new GradebookItem("Item", gradeCategory, 2);
-        grade3 = new GradebookItem("Item", gradeCategory, 3);        
+        grade3 = new GradebookItem("Item", gradeCategory, 3);
 
     }
 
@@ -113,14 +111,15 @@ public class GradingSchemeTest {
     }
 
     /**
-     * Test Section Multiple Grades (List) (average).
+     * Test Section Average.
      *
      */
     @Test
-    public void testSection() {
+    public void testSectionAverage() {
         GradingScheme scheme = new Scheme();
         SchoolClass class0 = new SchoolClass();
-        Section section = new Section(class0);
+        Section section = new Section();
+        section.setParentClass(class0);
 
         student1.addGrade(grade1);
         student2.addGrade(grade2);
@@ -130,10 +129,17 @@ public class GradingSchemeTest {
         section.addStudent(student2);
         section.addStudent(student3);
 
-        assertTrue("Section average", section.computeGrade(scheme) == 2);
+        assertTrue("Section average", section.computeAverage(scheme) == 2);
 
     }
 
+
+
+    /**
+     * Scheme. Grading Scheme object implementation.
+     * Computes a simple average for the class.
+     *
+     */
     public class Scheme implements GradingScheme {
     
         public Scheme() {
@@ -161,7 +167,7 @@ public class GradingSchemeTest {
         public final char computeLetterGrade(ArrayList<GradebookItem> gradebookItems) {
             return 'A';
         }
-
     }
+    
 }
 

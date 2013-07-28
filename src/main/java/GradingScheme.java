@@ -10,6 +10,19 @@ import java.util.ArrayList;
  *
  */
 public interface GradingScheme {
-    public int computeGrade(ArrayList<GradebookItem> gradebookItems);
-    public char computeLetterGrade(ArrayList<GradebookItem> gradebookItems);
+    /**
+     * Compute grade using grading scheme.
+     *
+     * @param gradebookItems List of student gradebook items.
+     * @return int number grade
+     */
+    int computeGrade(ArrayList<GradebookItem> gradebookItems);
+
+    /**
+     * Compute letter grade using grading scheme.
+     *
+     * @param gradebookItems List of student gradebook items.
+     * @return char letter grade
+     */
+    char computeLetterGrade(ArrayList<GradebookItem> gradebookItems);
 }

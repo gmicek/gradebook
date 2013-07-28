@@ -20,7 +20,9 @@ public class SectionTest {
     @Test
     public void testSectionParent() {
         SchoolClass schoolClass = new SchoolClass();
-        Section section = new Section(schoolClass);
+        Section section = new Section();
+        
+        section.setParentClass(schoolClass);
 
         assertTrue("Get Section Parent",
             section.getParentClass().equals(schoolClass));
@@ -33,7 +35,8 @@ public class SectionTest {
     @Test
     public void testSectionAddStudent() {
         SchoolClass schoolClass = new SchoolClass();
-        Section section = new Section(schoolClass);
+        Section section = new Section();
+        section.setParentClass(schoolClass);
         Student student = new Student();
 
         section.addStudent(student);
@@ -52,7 +55,8 @@ public class SectionTest {
     @Test
     public void testSectionAddStudents() {
         SchoolClass schoolClass = new SchoolClass();
-        Section section = new Section(schoolClass);
+        Section section = new Section();
+        section.setParentClass(schoolClass);
         Student student1 = new Student();
         Student student2 = new Student();
 
@@ -64,6 +68,21 @@ public class SectionTest {
 
         assertTrue("Add multiple students",
             section.getStudents().equals(list));
+
+    }
+
+    /**
+     * Test Section parent set from School Class.
+     *
+     */
+    @Test
+    public void testSectionParentClass() {
+        SchoolClass class1 = new SchoolClass();
+        Section section = new Section();
+
+        class1.addSection(section);
+
+        assertTrue("section parent set from class", section.getParentClass().equals(class1));
 
     }
 
