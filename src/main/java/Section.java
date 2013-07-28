@@ -110,9 +110,21 @@ public class Section {
      * Letter Grade.
      *
      * @param scheme Grading Scheme to be used when computing grade
+     * @return student letter grade computed from grading scheme
      */
-    // public final char computeLetterGrade(final GradingScheme scheme) {
-    //     return scheme.computeLetterGrade(gradebookItems);
-    // }
+    public final char computeLetterGrade(final GradingScheme scheme) {
+        if (students.isEmpty()) {
+            return 0;
+        }
+
+        ArrayList<GradebookItem> list = new ArrayList<GradebookItem>();
+
+        // get a list of all of the students' grades
+        for (Student student : students) {
+            list.addAll(student.getGradebookItems());
+        }
+        
+        return scheme.computeLetterGrade(list);
+    }
 
 }

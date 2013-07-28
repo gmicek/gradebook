@@ -109,11 +109,26 @@ public class SchoolClass {
     }
 
     /**
-     * Compute and return Class letter grade.
+     * Letter Grade.
      *
-     * @return letterGrade average letter grade for the course
+     * @param scheme Grading Scheme to be used when computing grade
+     * @return student letter grade computed from grading scheme
      */
-    // public char getLetterGrade() {
-    //     return null;
-    // }
+    public final char computeLetterGrade(final GradingScheme scheme) {
+        if (sections.isEmpty()) {
+                return 0;
+            }
+
+        ArrayList<GradebookItem> list = new ArrayList<GradebookItem>();
+
+        // look in each section
+        for (Section section : sections) {
+            // get a list of all of the students' grades
+            for (Student student : section.getStudents()) {
+                list.addAll(student.getGradebookItems());
+            }
+        }        
+        
+        return scheme.computeLetterGrade(list);
+    }
 }
