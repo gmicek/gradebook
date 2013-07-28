@@ -72,21 +72,37 @@ public class Section {
     }
 
     /**
-     * Report average score for Section.
+     * Number Grade.
      *
-     * @return average average grade for the section
+     * @param scheme Grading Scheme to be used when computing grade
      */
-    // public int getAverage() {
-    //     return null;
-    // }
+    public final int computeGrade(final GradingScheme scheme) {
+        if(students.isEmpty())
+            return 0;
+
+        ArrayList<Integer> list = new ArrayList<Integer>();
+
+        // compute individual students grades then add to master list
+        for (Student student : students) {
+            list.add(student.computeGrade(scheme));
+        }
+
+        int sum = 0;
+        // sum scores
+        for (Integer integer : list) {
+            sum += integer.intValue();
+        }
+        // return average for section
+        return sum / list.size();
+    }
 
     /**
-     * Compute and return Section letter grade.
+     * Letter Grade.
      *
-     * @return letterGrade average letter grade for the course
+     * @param scheme Grading Scheme to be used when computing grade
      */
-    // public char getLetterGrade() {
-    //     return null;
+    // public final char computeLetterGrade(final GradingScheme scheme) {
+    //     return scheme.computeLetterGrade(gradebookItems);
     // }
 
 }

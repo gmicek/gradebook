@@ -59,7 +59,6 @@ public class Student {
         }
     }
 
-
     /**
      * Name Getter.
      *
