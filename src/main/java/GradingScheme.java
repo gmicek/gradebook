@@ -1,5 +1,7 @@
 package gradebook.model;
 
+import java.util.ArrayList;
+
 /**
  * Grading Scheme implementation.
  *
@@ -7,6 +9,7 @@ package gradebook.model;
  * @author Gregory Micek
  *
  */
-public class GradingScheme {
-
+public interface GradingScheme {
+    public int computeGrade(ArrayList<GradebookItem> gradebookItems);
+    public char computeLetterGrade(ArrayList<GradebookItem> gradebookItems);
 }

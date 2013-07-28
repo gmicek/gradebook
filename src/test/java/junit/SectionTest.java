@@ -4,6 +4,7 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import gradebook.model.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class SectionTest {
 

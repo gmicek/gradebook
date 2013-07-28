@@ -29,4 +29,23 @@ public class GradebookCategory {
         name = newName;
         weight = newWeight;
     }
+
+    /**
+     * Name Getter.
+     *
+     * @return name Name
+     */
+    public final String getName() {
+        return name;
+    }
+
+    /**
+     * Weight Getter.
+     *
+     * @return int Weight
+     */
+    public final int getWeight() {
+        return weight;
+    }
+    
 }

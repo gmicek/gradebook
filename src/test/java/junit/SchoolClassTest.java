@@ -4,6 +4,7 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import gradebook.model.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class SchoolClassTest {
 
@@ -22,7 +23,7 @@ public class SchoolClassTest {
 
         schoolClass.addSection(section);
 
-        ArrayList<Section> list = new ArrayList<Section>();
+        List<Section> list = new ArrayList<Section>();
         list.add(section);
 
         assertTrue("Add single section",

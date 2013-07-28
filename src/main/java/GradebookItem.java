@@ -19,15 +19,23 @@ public class GradebookItem {
     private final GradebookCategory category;
 
     /**
+     * Gradebook Grade.
+     */
+    private final int grade;
+
+    /**
      * Gradebook Item Constructor.
      *
      * @param newName name of Gradebook Item
      * @param newCategory name of Gradebook Category
+     * @param grade value of grade
      */
     public GradebookItem(final String newName,
-        final GradebookCategory newCategory) {
+        final GradebookCategory newCategory,
+        final int newGrade) {
         name = newName;
         category = newCategory;
+        grade = newGrade;
     }
 
     /**
@@ -47,4 +55,14 @@ public class GradebookItem {
     public final String getName() {
         return name;
     }
+
+    /**
+     * Grade Getter.
+     *
+     * @return grade Grade
+     */
+    public int getGrade() {
+        return grade;
+    }
+
 }

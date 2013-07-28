@@ -1,6 +1,7 @@
 package gradebook.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Student implementation.
@@ -48,6 +49,18 @@ public class Student {
     }
 
     /**
+     * Add Gradebook Items (List)
+     *
+     * @param newGrades new Gradebook Items to add
+     */
+    public final void addGrade(final List<GradebookItem> grades) {
+        for (GradebookItem grade : grades) {
+            gradebookItems.add(grade);
+        }
+    }
+
+
+    /**
      * Name Getter.
      *
      * @return name Name
@@ -68,16 +81,18 @@ public class Student {
     /**
      * Number Grade.
      *
+     * @param scheme Grading Scheme to be used when computing grade
      */
-    // public final int computeGrade() {
-
-    // }
+    public final int computeGrade(final GradingScheme scheme) {
+        return scheme.computeGrade(gradebookItems);
+    }
 
     /**
      * Letter Grade.
      *
+     * @param scheme Grading Scheme to be used when computing grade
      */
-    // public final char computeLetterGrade() {
-
-    // }
+    public final char computeLetterGrade(final GradingScheme scheme) {
+        return scheme.computeLetterGrade(gradebookItems);
+    }
 }
