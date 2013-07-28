@@ -21,8 +21,8 @@ public interface GradingScheme {
     /**
      * Compute letter grade using grading scheme.
      *
-     * @param gradebookItems List of student gradebook items.
+     * @param numericAverage Numeric average
      * @return char letter grade
      */
-    char computeLetterGrade(ArrayList<GradebookItem> gradebookItems);
+    char computeLetterGrade(int numericAverage);
 }

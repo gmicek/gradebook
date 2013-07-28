@@ -117,18 +117,10 @@ public class SchoolClass {
     public final char computeLetterGrade(final GradingScheme scheme) {
         if (sections.isEmpty()) {
                 return 0;
-            }
+        }
 
-        ArrayList<GradebookItem> list = new ArrayList<GradebookItem>();
+        int avg = this.computeAverage(scheme);
+        return scheme.computeLetterGrade(avg);
 
-        // look in each section
-        for (Section section : sections) {
-            // get a list of all of the students' grades
-            for (Student student : section.getStudents()) {
-                list.addAll(student.getGradebookItems());
-            }
-        }        
-        
-        return scheme.computeLetterGrade(list);
     }
 }

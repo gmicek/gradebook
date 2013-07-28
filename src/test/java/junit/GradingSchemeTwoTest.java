@@ -99,7 +99,7 @@ public class GradingSchemeTwoTest {
          * Test letter grade
          *
          */
-        public final char computeLetterGrade(ArrayList<GradebookItem> gradebookItems) {
+        public final char computeLetterGrade(int numericAverage) {
             return 'A';
         }
 

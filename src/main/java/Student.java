@@ -94,6 +94,7 @@ public class Student {
      * @return student letter grade computed from grading scheme
      */
     public final char computeLetterGrade(final GradingScheme scheme) {
-        return scheme.computeLetterGrade(gradebookItems);
+        int avg = this.computeGrade(scheme);
+        return scheme.computeLetterGrade(avg);
     }
 }

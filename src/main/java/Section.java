@@ -117,14 +117,9 @@ public class Section {
             return 0;
         }
 
-        ArrayList<GradebookItem> list = new ArrayList<GradebookItem>();
+        int avg = this.computeAverage(scheme);
+        return scheme.computeLetterGrade(avg);
 
-        // get a list of all of the students' grades
-        for (Student student : students) {
-            list.addAll(student.getGradebookItems());
-        }
-        
-        return scheme.computeLetterGrade(list);
     }
 
 }
