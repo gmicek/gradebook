@@ -11,18 +11,22 @@ public class GradebookCategory {
     /**
      * Gradebook Category name.
      */
-    // private final String name;
+    private final String name;
 
     /**
      * Gradebook Category weight.
      */
-    // private final int weight;
+    private final int weight;
 
     /**
      * Gradebook Category Constructor.
      *
+     * @param newName name of the Gradebook Category
+     * @param newWeight weight in the Gradebook Category
      */
-    public GradebookCategory() {
-        
+    public GradebookCategory(final String newName,
+        final int newWeight) {
+        name = newName;
+        weight = newWeight;
     }
 }
