@@ -71,6 +71,64 @@ public class GradingSchemeTwoTest {
     }
 
     /**
+     * Test Student Letter Grade.
+     *
+     */
+    @Test
+    public void testStudentLetterGrade() {
+        student1.addGrade(grade1);
+        student1.addGrade(grade2);
+        student1.addGrade(grade3);
+
+        assertTrue(student1.computeLetterGrade(scheme) == 'A');
+    }
+
+    /**
+     * Test Section Letter Grade.
+     *
+     */
+    @Test
+    public void testSectionLetterGrade() {
+        section1 = new Section();
+
+        student1.addGrade(grade1);
+        student2.addGrade(grade2);
+        student3.addGrade(grade3);
+
+        section1.addStudent(student1);
+        section1.addStudent(student2);
+        section1.addStudent(student3);
+        
+        assertTrue(section1.computeLetterGrade(scheme) == 'A');
+    }
+
+    /**
+     * Test Class Letter Grade.
+     *
+     */
+    @Test
+    public void testClassLetterGrade() {
+        section1 = new Section();
+        section2 = new Section();
+        section3 = new Section();
+
+        // add sections to the class (the class will set the sections parentClass variable)
+        class1.addSection(section1);
+        class1.addSection(section2);
+        class1.addSection(section3);
+
+        student1.addGrade(grade1);
+        student2.addGrade(grade2);
+        student3.addGrade(grade3);
+
+        section1.addStudent(student1);
+        section2.addStudent(student2);
+        section3.addStudent(student3);
+
+        assertTrue(class1.computeLetterGrade(scheme) == 'A');
+    }
+
+    /**
      * Scheme. Grading Scheme object implementation.
      * Computes a simple average for the class.
      *
@@ -96,11 +154,13 @@ public class GradingSchemeTwoTest {
         }
         
         /**
-         * Test letter grade
+         * Basic letter grade
          *
          */
         public final char computeLetterGrade(int numericAverage) {
-            return 'A';
+            if(numericAverage == 2)
+                return 'A';
+            return 'F';
         }
 
     }

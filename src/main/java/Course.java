@@ -10,24 +10,13 @@ import java.util.ArrayList;
  *
  */
 public class Course {
-    /**
-     * Course name.
-     */
+
     private final String name;
 
-    /**
-     * Course subject.
-     */
     private final String subject;
 
-    /**
-     * Course number.
-     */
     private final int courseNumber;
 
-    /**
-     * Course prerequisites.
-     */
     private ArrayList<Course> prerequisites;
 
     /**

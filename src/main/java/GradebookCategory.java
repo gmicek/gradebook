@@ -8,9 +8,7 @@ package gradebook.model;
  *
  */
 public class GradebookCategory {
-    /**
-     * Gradebook Category name.
-     */
+
     private final String name;
 
     /**

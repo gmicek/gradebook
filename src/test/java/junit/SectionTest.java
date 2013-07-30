@@ -14,6 +14,28 @@ public class SectionTest {
     }
 
     /**
+     * Test section name.
+     *
+     */
+    @Test
+    public void testSectionName() {
+        Section section = new Section("Name");
+
+        assertTrue("Section name in constructor.", section.getName().equals("Name"));
+    }
+
+    /**
+     * Test section set name.
+     *
+     */
+    @Test
+    public void testSectionSetName() {
+        Section section = new Section();
+        section.setName("Name");
+        assertTrue("Section name set after constructor.", section.getName().equals("Name"));
+    }
+
+    /**
      * Test Section parent by comparing getter output.
      *
      */

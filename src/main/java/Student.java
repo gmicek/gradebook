@@ -11,14 +11,9 @@ import java.util.List;
  *
  */
 public class Student {
-    /**
-     * Student name.
-     */
+
     private final String name;
 
-    /**
-     * Gradebook Items.
-     */
     private ArrayList<GradebookItem> gradebookItems;
 
     /**

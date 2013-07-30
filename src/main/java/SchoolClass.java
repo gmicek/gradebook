@@ -11,10 +11,6 @@ import java.util.ArrayList;
  */
 public class SchoolClass {
 
-    /**
-     * Class Name.
-     *
-     */
     private final String name;
 
     /**

@@ -8,19 +8,11 @@ package gradebook.model;
  *
  */
 public class GradebookItem {
-    /**
-     * Gradebook Item name.
-     */
+
     private final String name;
 
-    /**
-     * Gradebook Category.
-     */
     private final GradebookCategory category;
 
-    /**
-     * Gradebook Grade.
-     */
     private final int grade;
 
     /**
