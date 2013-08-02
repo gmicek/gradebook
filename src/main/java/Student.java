@@ -12,16 +12,18 @@ import java.util.List;
  */
 public class Student {
 
+    private final int id;
+
     private final String name;
 
     private ArrayList<GradebookItem> gradebookItems;
 
     /**
-     * Student Constructor.
+     * Student Constructor for debug.
      *
      */
     public Student() {
-        this(null);
+        this(1, null);
     }
 
     /**
@@ -29,7 +31,8 @@ public class Student {
      *
      * @param newName name of the student.
      */
-    public Student(final String newName) {
+    public Student(final int newId, final String newName) {
+        id = newId;
         name = newName;
         gradebookItems = new ArrayList<GradebookItem>();
     }
@@ -73,6 +76,14 @@ public class Student {
     }
 
     /**
+     * Return id.
+     *
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
      * Number Grade.
      *
      * @param scheme Grading Scheme to be used when computing grade
@@ -92,4 +103,5 @@ public class Student {
         int avg = this.computeGrade(scheme);
         return scheme.computeLetterGrade(avg);
     }
+
 }

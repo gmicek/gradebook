@@ -11,6 +11,8 @@ import java.util.ArrayList;
  */
 public class SchoolClass {
 
+    private final int id;
+
     private final String name;
 
     /**
@@ -20,11 +22,11 @@ public class SchoolClass {
     private ArrayList<Section> sections;
 
     /**
-     * Class Constructor.
+     * Class Constructor for debug.
      *
      */
     public SchoolClass() {
-        this(null);
+        this(1, null);
     }
 
     /**
@@ -32,7 +34,8 @@ public class SchoolClass {
      *
      * @param newName class name
      */
-    public SchoolClass(final String newName) {
+    public SchoolClass(final int newId, final String newName) {
+        id = newId;
         sections = new ArrayList<Section>();
         name = newName;
     }
@@ -74,6 +77,14 @@ public class SchoolClass {
      */
     public final String getName() {
         return name;
+    }
+
+    /**
+     * Return id.
+     *
+     */
+    public int getId() {
+        return id;
     }
 
     /**
@@ -119,4 +130,5 @@ public class SchoolClass {
         return scheme.computeLetterGrade(avg);
 
     }
+
 }

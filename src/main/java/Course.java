@@ -11,6 +11,8 @@ import java.util.ArrayList;
  */
 public class Course {
 
+    private final int id;
+
     private final String name;
 
     private final String subject;
@@ -22,14 +24,15 @@ public class Course {
     /**
      * Course Constructor without prerequisites.
      *
+     * @param id Course id.
      * @param newName Course name.
      * @param newSubject Course subject.
      * @param newCourseNumber Course number.
      */
-    public Course(final String newName,
+    public Course(final int newId, final String newName,
             final String newSubject,
             final int newCourseNumber) {
-        this(newName, newSubject, newCourseNumber, null);
+        this(newId, newName, newSubject, newCourseNumber, null);
     }
 
     /**
@@ -40,10 +43,12 @@ public class Course {
      * @param newCourseNumber Course number.
      * @param newPrereqs Course prerequisites.
      */
-    public Course(final String newName,
+    public Course(final int newId,
+            final String newName,
             final String newSubject,
             final int newCourseNumber,
             final ArrayList<Course> newPrereqs) {
+        id = newId;
         name = newName;
         subject = newSubject;
         courseNumber = newCourseNumber;
@@ -84,6 +89,14 @@ public class Course {
      */
     public final ArrayList<Course> getPrereqs() {
         return prerequisites;
+    }
+
+    /**
+     * Return id.
+     *
+     */
+    public int getId() {
+        return id;
     }
 
 }

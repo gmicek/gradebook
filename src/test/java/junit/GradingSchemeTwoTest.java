@@ -28,6 +28,8 @@ public class GradingSchemeTwoTest {
 
     GradingScheme scheme;
 
+    int id = 1;
+
     @Before
     public void setUp() throws Exception {
         scheme = new Scheme();

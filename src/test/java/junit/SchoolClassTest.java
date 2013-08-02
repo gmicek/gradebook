@@ -8,8 +8,34 @@ import java.util.List;
 
 public class SchoolClassTest {
 
+    int id = 1;
+
     @Before
     public void setUp() throws Exception {
+    }
+
+    /**
+     * Test get id.
+     *
+     */
+    @Test
+    public void testGetid() {
+        SchoolClass class1 = new SchoolClass(id, "Name");
+
+
+        assertTrue("get id", class1.getId() == 1);
+    }
+
+    /**
+     * Test get name.
+     *
+     */
+    @Test
+    public void testGetName() {
+        SchoolClass class1 = new SchoolClass(id, "Name");
+
+
+        assertTrue("get name Name", class1.getName().equals("Name"));
     }
 
     /**
@@ -60,22 +86,10 @@ public class SchoolClassTest {
      */
     @Test
     public void testAddSection() {
-        SchoolClass class1 = new SchoolClass("Name");
+        SchoolClass class1 = new SchoolClass(id, "Name");
         Section section1 = new Section();
         class1.addSection(section1);
-        
 
-        assertTrue("get name Name", class1.getName().equals("Name"));
-    }
-
-    /**
-     * Test get name.
-     *
-     */
-    @Test
-    public void testGetName() {
-        SchoolClass class1 = new SchoolClass("Name");
-        
 
         assertTrue("get name Name", class1.getName().equals("Name"));
     }

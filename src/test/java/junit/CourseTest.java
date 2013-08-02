@@ -11,6 +11,7 @@ public class CourseTest {
         courseSubject;
     int courseNumber;
     ArrayList<Course> prerequisites;
+    int id = 1;
 
     @Before
     public void setUp() throws Exception {
@@ -19,25 +20,27 @@ public class CourseTest {
         courseName = "Course Name";
         courseSubject = "Course Subject";
         courseNumber = 1;
-        
+
         // prerequisite list
         prerequisites = new ArrayList<Course>();
-        Course course1 = new Course(courseName,
+        Course course1 = new Course(id, courseName,
                                     courseSubject,
                                     courseNumber);
         prerequisites.add(course1);
     }
 
     /**
-     * Test getters for creating a course without prereqs.
+     * Test Constructor without prereq.
      *
      */
     @Test
     public void testCourseNoPrereqs() {
-        Course course = new Course(courseName,
+        Course course = new Course(id, courseName,
                                     courseSubject,
                                     courseNumber);
 
+        assertTrue("course id",
+            course.getId() == 1);
         assertTrue("Course Name Getter", 
             course.getName().equals("Course Name"));
 
@@ -53,16 +56,18 @@ public class CourseTest {
     }
 
     /**
-     * Test getters for creating a course with prereqs.
+     * Test constructor with prereq.
      *
      */
     @Test
     public void testCourseWithPrereqs() {
-        Course course = new Course(courseName,
+        Course course = new Course(id, courseName,
                                     courseSubject,
                                     courseNumber,
                                     prerequisites);
 
+        assertTrue("course id",
+            course.getId() == 1);
         assertTrue("Course Name Getter", 
             course.getName().equals("Course Name"));
 

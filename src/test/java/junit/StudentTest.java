@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 public class StudentTest {
 
+    int id = 1;
+
     @Before
     public void setUp() throws Exception {
     }
@@ -22,13 +24,23 @@ public class StudentTest {
     }
 
     /**
+     * Test Student id.
+     *
+     */
+    @Test
+    public void testStudentId() {
+        Student student = new Student(id, null);
+        assertTrue("student id", id == 1);
+    }
+
+    /**
      * Test Student Name.
      *
      */
     @Test
     public void testStudentName() {
-        Student student = new Student("Bob");
-        assertTrue("Null student name",
+        Student student = new Student(id, "Bob");
+        assertTrue("student name",
             student.getName().equals("Bob"));
     }
 
@@ -38,10 +50,10 @@ public class StudentTest {
      */
     @Test
     public void testStudentGrades() {
-        Student student = new Student("Bob");
+        Student student = new Student(id, "Bob");
         GradebookCategory gradeCategory = new GradebookCategory("Category", 1);
         GradebookItem grade = new GradebookItem("Grade Name", gradeCategory, 1);
-        
+
         student.addGrade(grade);
 
         ArrayList<GradebookItem> list = new ArrayList<GradebookItem>();
@@ -57,7 +69,7 @@ public class StudentTest {
      */
     @Test
     public void testStudentMultipleGrades() {
-        Student student = new Student("Bob");
+        Student student = new Student(id, "Bob");
         GradebookCategory gradeCategory = new GradebookCategory("Category", 1);
         GradebookItem grade1 = new GradebookItem("Grade Name", gradeCategory, 1);
         GradebookItem grade2 = new GradebookItem("Grade Name", gradeCategory, 2);

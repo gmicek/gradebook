@@ -11,9 +11,11 @@ import java.util.ArrayList;
  */
 public class Section {
 
+    private final int id;
+
     private String name;
 
-    private ArrayList<Student> students;
+    private final ArrayList<Student> students;
 
     /**
      * The Class that this Section belongs to.
@@ -21,10 +23,11 @@ public class Section {
     private SchoolClass parentClass;
 
     /**
-     * Section Constructor.
+     * Section Constructor for debug.
      *
      */
     public Section() {
+        id = 1;
         students = new ArrayList<Student>();
     }
 
@@ -33,7 +36,8 @@ public class Section {
      *
      * @param name Section name
      */
-    public Section(String newName) {
+    public Section(final int newId, String newName) {
+        id = newId;
         students = new ArrayList<Student>();
         name = newName;
     }
@@ -99,6 +103,14 @@ public class Section {
      */
     public final ArrayList<Student> getStudents() {
         return students;
+    }
+
+    /**
+     * Return id.
+     *
+     */
+    public int getId() {
+        return id;
     }
 
     /**

@@ -8,6 +8,7 @@ import java.util.List;
 
 public class SectionTest {
 
+    int id = 1;
 
     @Before
     public void setUp() throws Exception {
@@ -18,8 +19,19 @@ public class SectionTest {
      *
      */
     @Test
+    public void testSectionId() {
+        Section section = new Section(id, "Name");
+
+        assertTrue("Section id in constructor.", section.getId() == 1);
+    }
+
+    /**
+     * Test section name.
+     *
+     */
+    @Test
     public void testSectionName() {
-        Section section = new Section("Name");
+        Section section = new Section(id, "Name");
 
         assertTrue("Section name in constructor.", section.getName().equals("Name"));
     }
@@ -43,7 +55,7 @@ public class SectionTest {
     public void testSectionParent() {
         SchoolClass schoolClass = new SchoolClass();
         Section section = new Section();
-        
+
         section.setParentClass(schoolClass);
 
         assertTrue("Get Section Parent",
